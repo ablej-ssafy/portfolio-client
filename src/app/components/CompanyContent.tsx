@@ -13,7 +13,7 @@ const CompanyContent = ({ companies }: CompanyContentProps) => {
           const isLastElement = index === companies.length - 1;
           const [sosoc, position] = company.affiliation.split('/');
           return (
-            <div className='flex flex-row py-4'>
+            <div className='flex flex-row py-4' key={index}>
               <div className='flex flex-col space-y-1 w-44'>
                 <span className='text-md font-medium'>
                   {company.startAt} - {company.endAt}

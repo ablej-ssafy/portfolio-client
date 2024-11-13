@@ -1,5 +1,5 @@
-import { MongoClient } from 'mongodb';
 import { MONGODB_URI } from '@/config/env';
+import { MongoClient } from 'mongodb';
 
 const options = {};
 
@@ -7,7 +7,7 @@ let client;
 let clientPromise: Promise<MongoClient>;
 
 if (process.env.NODE_ENV === 'development') {
-  let globalWithMongo = global as typeof globalThis & {
+  const globalWithMongo = global as typeof globalThis & {
     _mongoClientPromise?: Promise<MongoClient>
   }
 

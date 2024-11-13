@@ -12,7 +12,7 @@ const EducationContent = ({ educationals }: EducationContentProps) => {
         {educationals.map((education, index) => {
           const isLastElement = index === educationals.length - 1;
           return (
-            <div className='flex flex-row py-4'>
+            <div className='flex flex-row py-4' key={index}>
               <div className='flex flex-col space-y-1 w-44'>
                 <span className='text-md font-medium'>
                   {education.startAt} - {education.endAt}

@@ -1,0 +1,50 @@
+name: sync client to main repository
+
+on:
+  push:
+    branches:
+      - develop
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Github main repository
+        uses: actions/checkout@v3
+        with:
+          repository: ablej-ssafy/ai-headhunting
+          token: ${{ secrets.GIT_TOKEN }}
+          fetch-depth: 0
+
+      - name: Checkout client repository
+        uses: actions/checkout@v3
+        with:
+          repository: ablej-ssafy/portfolio-client
+          path: temp_portfolio_client
+          fetch-depth: 0
+
+      - name: Get portfolio client last commit author
+        id: get-author
+        working-directory: temp_portfolio_client
+        run: echo "author=$(git log -1 --pretty=format:'%an')" >> $GITHUB_OUTPUT
+
+      - name: Get portfolio client last commit author email
+        id: get-author-email
+        working-directory: temp_portfolio_client
+        run: echo "email=$(git log -1 --pretty=format:'%ae')" >> $GITHUB_OUTPUT
+
+      - name: Configure Git
+        run: |
+          git config --global user.name "${{ steps.get-author.outputs.author }}"
+          git config --global user.email "${{ steps.get-author-email.outputs.email }}"
+
+      - name: Add portfolio client as subtree
+        run: |
+          git remote add portfolio-client https://github.com/ablej-ssafy/portfolio-client.git
+          git fetch portfolio-client develop
+          git subtree pull --prefix=portfolio-client portfolio-client develop --message "Sync portfolio client to main repository"
+
+      - name: Push changes to Github
+        run: |
+          git push origin develop

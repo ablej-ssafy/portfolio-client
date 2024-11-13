@@ -14,6 +14,7 @@ export default function Home() {
       {/* 메인 프로필 페이지 */}
       <div className='flex flex-row justify-between'>
         <MainContent basic={resume.basic} />
+        {/* 프로필 이미지 페이지 */}
         <ProfileContent basic={resume.basic} />
       </div>
       {/* 프로젝트 페이지 */}

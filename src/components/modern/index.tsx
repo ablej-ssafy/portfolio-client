@@ -1,5 +1,6 @@
 import { resume } from '@/app/resume';
 
+import TechContent from '@/components/common/TechContent';
 import ActivityContent from '@/components/modern/ActivityContent';
 import CompanyContent from '@/components/modern/CompanyContent';
 import EducationContent from '@/components/modern/EducationContent';
@@ -7,7 +8,6 @@ import MainContent from '@/components/modern/MainContent';
 import ProfileContent from '@/components/modern/ProfileContent';
 import ProjectContent from '@/components/modern/ProjectContent';
 import QualificationContent from '@/components/modern/QualificationContent';
-import TechContent from '@/components/modern/TechContent';
 
 const Modern = () => {
   return (

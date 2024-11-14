@@ -1,6 +1,6 @@
 const TechContent = () => {
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col pt-8'>
       <h2 className='font-semibold text-4xl mb-8'>기술 스택</h2>
       <div className='flex flex-row gap-2'>
         {['JAVA', 'React', 'Next.js', 'Ubuntu', 'Vue', 'Kotlin', 'Python', 'Angular'].map(

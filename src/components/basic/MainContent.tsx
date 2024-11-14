@@ -9,18 +9,6 @@ interface MainContentProps {
   basic: Basic;
 }
 
-// export interface Basic {
-//   name: string;
-//   profileImage: string;
-//   job: string;
-//   title: string;
-//   introduce: string;
-//   email?: string;
-//   phoneNumber?: string;
-//   github?: string;
-//   website?: string;
-// }
-
 const MainContent = ({ basic }: MainContentProps) => {
   return (
     <div className='flex flex-row items-center space-x-10'>

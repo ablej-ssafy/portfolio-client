@@ -11,7 +11,7 @@ const CompanyContent = ({ companies }: CompanyContentProps) => {
       <div className='flex flex-col'>
         {companies.map((company, index) => {
           const isLastElement = index === companies.length - 1;
-          const [sosoc, position] = company.affiliation.split('/');
+          const [organization, position] = company.affiliation.split('/');
           return (
             <div className='flex flex-row py-4' key={index}>
               <div className='flex flex-col space-y-1 w-44'>
@@ -31,7 +31,7 @@ const CompanyContent = ({ companies }: CompanyContentProps) => {
               </div>
               <div className='flex flex-col w-40'>
                 <h3 className='text-xl font-medium'>{company.title}</h3>
-                <span className='text-sm'>{sosoc}</span>
+                <span className='text-sm'>{organization}</span>
               </div>
               <p className='whitespace-pre'>{company.description}</p>
             </div>

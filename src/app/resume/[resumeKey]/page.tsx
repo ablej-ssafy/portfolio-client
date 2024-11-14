@@ -1,4 +1,4 @@
-import Basic from '@/components/basic';
+import Basic from '@/components/modern/dark';
 
 export default function Home() {
   return (

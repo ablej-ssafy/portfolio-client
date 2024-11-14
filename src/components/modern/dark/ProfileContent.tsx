@@ -1,4 +1,4 @@
-import DarkIconText from '@/app/components/common/DarkIconText';
+import DarkIconText from '@/components/common/DarkIconText';
 import { Basic } from '@/types/resume';
 
 import { IoLogoGithub } from 'react-icons/io';

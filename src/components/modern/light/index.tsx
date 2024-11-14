@@ -1,12 +1,12 @@
-import ActivityContent from '@/app/components/modern-light/ActivityContent';
-import CompanyContent from '@/app/components/modern-light/CompanyContent';
-import EducationContent from '@/app/components/modern-light/EducationContent';
-import MainContent from '@/app/components/modern-light/MainContent';
-import ProfileContent from '@/app/components/modern-light/ProfileContent';
-import ProjectContent from '@/app/components/modern-light/ProjectContent';
-import QualificationContent from '@/app/components/modern-light/QualificationContent';
-import TechContent from '@/app/components/modern-light/TechContent';
 import { resume } from '@/app/resume';
+import ActivityContent from '@/components/modern/light/ActivityContent';
+import CompanyContent from '@/components/modern/light/CompanyContent';
+import EducationContent from '@/components/modern/light/EducationContent';
+import MainContent from '@/components/modern/light/MainContent';
+import ProfileContent from '@/components/modern/light/ProfileContent';
+import ProjectContent from '@/components/modern/light/ProjectContent';
+import QualificationContent from '@/components/modern/light/QualificationContent';
+import TechContent from '@/components/modern/light/TechContent';
 
 const ModernLight = () => {
   return (

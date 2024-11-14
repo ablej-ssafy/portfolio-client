@@ -1,12 +1,12 @@
-import ActivityContent from '@/app/components/modern-dark/ActivityContent';
-import CompanyContent from '@/app/components/modern-dark/CompanyContent';
-import EducationContent from '@/app/components/modern-dark/EducationContent';
-import MainContent from '@/app/components/modern-dark/MainContent';
-import ProfileContent from '@/app/components/modern-dark/ProfileContent';
-import ProjectContent from '@/app/components/modern-dark/ProjectContent';
-import QualificationContent from '@/app/components/modern-dark/QualificationContent';
-import TechContent from '@/app/components/modern-dark/TechContent';
 import { resume } from '@/app/resume';
+import ActivityContent from '@/components/modern/dark/ActivityContent';
+import CompanyContent from '@/components/modern/dark/CompanyContent';
+import EducationContent from '@/components/modern/dark/EducationContent';
+import MainContent from '@/components/modern/dark/MainContent';
+import ProfileContent from '@/components/modern/dark/ProfileContent';
+import ProjectContent from '@/components/modern/dark/ProjectContent';
+import QualificationContent from '@/components/modern/dark/QualificationContent';
+import TechContent from '@/components/modern/dark/TechContent';
 
 const ModernDark = () => {
   return (

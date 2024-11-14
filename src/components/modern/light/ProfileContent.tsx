@@ -1,8 +1,4 @@
-<<<<<<< HEAD:portfolio-client/src/app/components/ProfileContent.tsx
-import IconText from '@/app/components/modern-light/IconText';
-=======
 import IconText from '@/components/common/IconText';
->>>>>>> a28a565017cda1eb25ca2c7db0a26dd4d56e006c:src/components/modern/ProfileContent.tsx
 import { Basic } from '@/types/resume';
 
 import { IoLogoGithub } from 'react-icons/io';

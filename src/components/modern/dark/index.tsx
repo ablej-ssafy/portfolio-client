@@ -17,6 +17,7 @@ const ModernDark = () => {
           <MainContent basic={resume.basic} />
           <ProfileContent basic={resume.basic} />
         </div>
+
         {/* 프로젝트 페이지 */}
         <ProjectContent projects={resume.projects} />
         {/* 회사 페이지 */}

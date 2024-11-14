@@ -1,3 +1,4 @@
+<<<<<<< HEAD:portfolio-client/src/app/page.tsx
 import ActivityContent from '@/app/components/modern-light/ActivityContent';
 import CompanyContent from '@/app/components/modern-light/CompanyContent';
 import EducationContent from '@/app/components/modern-light/EducationContent';
@@ -6,9 +7,20 @@ import ProfileContent from '@/app/components/modern-light/ProfileContent';
 import ProjectContent from '@/app/components/modern-light/ProjectContent';
 import QualificationContent from '@/app/components/modern-light/QualificationContent';
 import TechContent from '@/app/components/modern-light/TechContent';
+=======
+>>>>>>> a28a565017cda1eb25ca2c7db0a26dd4d56e006c:src/components/modern/index.tsx
 import { resume } from '@/app/resume';
 
-export default function Home() {
+import ActivityContent from '@/components/modern/ActivityContent';
+import CompanyContent from '@/components/modern/CompanyContent';
+import EducationContent from '@/components/modern/EducationContent';
+import MainContent from '@/components/modern/MainContent';
+import ProfileContent from '@/components/modern/ProfileContent';
+import ProjectContent from '@/components/modern/ProjectContent';
+import QualificationContent from '@/components/modern/QualificationContent';
+import TechContent from '@/components/modern/TechContent';
+
+const Modern = () => {
   return (
     <div className='flex flex-col w-4/5 m-auto py-24 space-y-10'>
       {/* 메인 프로필 페이지 */}
@@ -30,4 +42,6 @@ export default function Home() {
       <TechContent />
     </div>
   );
-}
+};
+
+export default Modern;

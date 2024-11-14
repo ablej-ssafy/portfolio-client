@@ -1,4 +1,4 @@
-import IconText from '@/components/common/IconText';
+import DarkIconText from '@/components/common/dark/DarkIconText';
 import { Basic } from '@/types/resume';
 import { IoLogoGithub } from 'react-icons/io';
 import { MdOutlineMailOutline } from 'react-icons/md';
@@ -11,7 +11,7 @@ interface MainContentProps {
 
 const MainContent = ({ basic }: MainContentProps) => {
   return (
-    <div className='flex flex-row items-center space-x-10'>
+    <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white'>
       <div
         className='w-60 h-60 rounded-full bg-contain bg-center bg-no-repeat bg-white'
         style={{
@@ -23,27 +23,27 @@ const MainContent = ({ basic }: MainContentProps) => {
         <div className='flex flex-col space-y-4 mt-6'>
           {/* 이메일 */}
           {basic.email && (
-            <IconText text={basic.email} email>
-              <MdOutlineMailOutline size={20} />
-            </IconText>
+            <DarkIconText text={basic.email} email>
+              <MdOutlineMailOutline size={20} className='text-gray-300' />
+            </DarkIconText>
           )}
           {/* 전화번호 */}
           {basic.phoneNumber && (
-            <IconText text={basic.phoneNumber}>
-              <PiPhoneFill size={20} />
-            </IconText>
+            <DarkIconText text={basic.phoneNumber}>
+              <PiPhoneFill size={20} className='text-gray-300' />
+            </DarkIconText>
           )}
           {/* 깃허브 */}
           {basic.github && (
-            <IconText text={basic.github}>
-              <IoLogoGithub size={20} />
-            </IconText>
+            <DarkIconText text={basic.github}>
+              <IoLogoGithub size={20} className='text-gray-300' />
+            </DarkIconText>
           )}
           {/* 웹사이트 */}
           {basic.website && (
-            <IconText text={basic.website}>
-              <TbWorld size={20} />
-            </IconText>
+            <DarkIconText text={basic.website}>
+              <TbWorld size={20} className='text-gray-300' />
+            </DarkIconText>
           )}
         </div>
       </div>

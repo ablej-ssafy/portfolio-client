@@ -1,15 +1,15 @@
 import { resume } from '@/app/resume';
 
-import ActivityContent from '@/components/basic/ActivityContent';
-import CompanyContent from '@/components/basic/CompanyContent';
-import EducationContent from '@/components/basic/EducationContent';
-import MainContent from '@/components/basic/MainContent';
-import ProfileContent from '@/components/basic/ProfileContent';
-import ProjectContent from '@/components/basic/ProjectContent';
-import QualificationContent from '@/components/basic/QualificationContent';
-import TechContent from '@/components/common/TechContent';
+import ActivityContent from '@/components/basic/light/ActivityContent';
+import CompanyContent from '@/components/basic/light/CompanyContent';
+import EducationContent from '@/components/basic/light/EducationContent';
+import MainContent from '@/components/basic/light/MainContent';
+import ProfileContent from '@/components/basic/light/ProfileContent';
+import ProjectContent from '@/components/basic/light/ProjectContent';
+import QualificationContent from '@/components/basic/light/QualificationContent';
+import TechContent from '@/components/basic/light/TechContent';
 
-const Basic = () => {
+const BasicLight = () => {
   return (
     <div className='bg-[#FFF5F1]'>
       <div className='flex flex-col w-4/5 m-auto py-24 space-y-12'>
@@ -40,4 +40,4 @@ const Basic = () => {
   );
 };
 
-export default Basic;
+export default BasicLight;

@@ -8,7 +8,7 @@ import QualificationContent from '@/app/components/modern-light/QualificationCon
 import TechContent from '@/app/components/modern-light/TechContent';
 import { resume } from '@/app/resume';
 
-export default function Home() {
+const ModernLight = () => {
   return (
     <div className='flex flex-col w-4/5 m-auto py-24 space-y-10'>
       {/* 메인 프로필 페이지 */}
@@ -30,4 +30,6 @@ export default function Home() {
       <TechContent />
     </div>
   );
-}
+};
+
+export default ModernLight;

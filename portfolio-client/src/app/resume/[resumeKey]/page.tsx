@@ -1,11 +1,11 @@
-import ActivityContent from '@/app/components/ActivityContent';
-import CompanyContent from '@/app/components/CompanyContent';
-import EducationContent from '@/app/components/EducationContent';
-import MainContent from '@/app/components/MainContent';
-import ProfileContent from '@/app/components/ProfileContent';
-import ProjectContent from '@/app/components/ProjectContent';
-import QualificationContent from '@/app/components/QualificationContent';
-import TechContent from '@/app/components/TechContent';
+import ActivityContent from '@/app/components/modern-light/ActivityContent';
+import CompanyContent from '@/app/components/modern-light/CompanyContent';
+import EducationContent from '@/app/components/modern-light/EducationContent';
+import MainContent from '@/app/components/modern-light/MainContent';
+import ProfileContent from '@/app/components/modern-light/ProfileContent';
+import ProjectContent from '@/app/components/modern-light/ProjectContent';
+import QualificationContent from '@/app/components/modern-light/QualificationContent';
+import TechContent from '@/app/components/modern-light/TechContent';
 import { resume } from '@/app/resume';
 
 export default function Home() {

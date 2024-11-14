@@ -1,6 +1,6 @@
-import IconText from '@/components/common/IconText';
-import { Basic } from '@/types/resume';
+import IconText from '@/components/common/light/IconText';
 
+import { Basic } from '@/types/resume';
 import { IoLogoGithub } from 'react-icons/io';
 import { MdOutlineMailOutline } from 'react-icons/md';
 import { PiPhoneFill } from 'react-icons/pi';

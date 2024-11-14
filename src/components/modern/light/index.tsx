@@ -1,15 +1,14 @@
 import { resume } from '@/app/resume';
+import ActivityContent from '@/components/modern/light/ActivityContent';
+import CompanyContent from '@/components/modern/light/CompanyContent';
+import EducationContent from '@/components/modern/light/EducationContent';
+import MainContent from '@/components/modern/light/MainContent';
+import ProfileContent from '@/components/modern/light/ProfileContent';
+import ProjectContent from '@/components/modern/light/ProjectContent';
+import QualificationContent from '@/components/modern/light/QualificationContent';
+import TechContent from '@/components/modern/light/TechContent';
 
-import TechContent from '@/components/common/TechContent';
-import ActivityContent from '@/components/modern/ActivityContent';
-import CompanyContent from '@/components/modern/CompanyContent';
-import EducationContent from '@/components/modern/EducationContent';
-import MainContent from '@/components/modern/MainContent';
-import ProfileContent from '@/components/modern/ProfileContent';
-import ProjectContent from '@/components/modern/ProjectContent';
-import QualificationContent from '@/components/modern/QualificationContent';
-
-const Modern = () => {
+const ModernLight = () => {
   return (
     <div className='flex flex-col w-4/5 m-auto py-24 space-y-10'>
       {/* 메인 프로필 페이지 */}
@@ -33,4 +32,4 @@ const Modern = () => {
   );
 };
 
-export default Modern;
+export default ModernLight;

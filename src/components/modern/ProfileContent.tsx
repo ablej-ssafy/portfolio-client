@@ -1,4 +1,4 @@
-import IconText from '@/app/components/IconText';
+import IconText from '@/components/common/IconText';
 import { Basic } from '@/types/resume';
 
 import { IoLogoGithub } from 'react-icons/io';

@@ -1,5 +1,7 @@
+import { formatKoreanDate } from '@/app/utils/convertor';
 import { Activity } from '@/types/resume';
-import { GoLink } from 'react-icons/go';
+import Image from 'next/image';
+import GoLinkLight from 'public/light/GoLinkLight.svg';
 
 interface ProjectContentProps {
   projects: Activity[];
@@ -16,23 +18,25 @@ const ProjectContent = ({ projects }: ProjectContentProps) => {
               <div className='flex flex-row justify-between items-center'>
                 <h3 className='font-bold text-xl'>{project.title}</h3>
                 <span className='font-normal text-sm'>
-                  {project.startAt} ~ {project.endAt}
+                  {formatKoreanDate(project.startAt)} ~ {formatKoreanDate(project.endAt)}
                 </span>
               </div>
               <span className='font-normal text-sub text-lg mt-1 mb-5'>{project.affiliation}</span>
-              <p className='font-normal text-sm whitespace-pre truncate text-wrap'>
+              <p className='font-normal text-sm whitespace-pre-wrap truncate text-wrap'>
                 {project.description}
               </p>
-              <div className='flex flex-row space-x-2 items-center mt-2'>
-                <GoLink size={14} />
-                <a
-                  href={project.referenceUrl}
-                  target='blank'
-                  className='font-normal text-sm text-sub underline'
-                >
-                  {project.referenceUrl}
-                </a>
-              </div>
+              {project.referenceUrl && (
+                <div className='flex flex-row space-x-2 items-center mt-2'>
+                  <Image src={GoLinkLight} alt='goLink' width={14} height={14} />
+                  <a
+                    href={project.referenceUrl}
+                    target='blank'
+                    className='font-normal text-sm text-sub underline'
+                  >
+                    {project.referenceUrl}
+                  </a>
+                </div>
+              )}
             </div>
           );
         })}

@@ -1,5 +1,7 @@
+import { formatKoreanDate } from '@/app/utils/convertor';
 import { Qualification } from '@/types/resume';
-import { IoMdCheckmarkCircleOutline } from 'react-icons/io';
+import Image from 'next/image';
+import CheckMarkDark from 'public/dark/CheckMarkDark.svg';
 
 interface QualificationContentProps {
   qualifications: Qualification[];
@@ -19,7 +21,13 @@ const QualificationContent = ({ qualifications }: QualificationContentProps) => 
               <h3 className='font-medium text-md mb-1 text-neutral-100'>{qualification.name}</h3>
               {qualification.credential && (
                 <div className='flex flex-row mr-2 items-center'>
-                  <IoMdCheckmarkCircleOutline size={14} className='text-neutral-400' />
+                  <Image
+                    src={CheckMarkDark}
+                    alt='goLink'
+                    width={14}
+                    height={14}
+                    className='text-neutral-400'
+                  />
                   <span className='font-normal text-xs text-neutral-400 ml-1'>
                     {qualification.credential}
                   </span>
@@ -30,7 +38,7 @@ const QualificationContent = ({ qualifications }: QualificationContentProps) => 
                   {qualification.organization}
                 </span>
                 <span className='font-normal text-xs text-neutral-300'>
-                  {qualification.acquisitionAt}
+                  {formatKoreanDate(qualification.acquisitionAt)}
                 </span>
               </div>
             </div>

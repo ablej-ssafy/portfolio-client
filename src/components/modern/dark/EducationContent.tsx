@@ -1,3 +1,4 @@
+import { formatKoreanDate } from '@/app/utils/convertor';
 import { Education } from '@/types/resume';
 
 interface EducationContentProps {
@@ -15,7 +16,7 @@ const EducationContent = ({ educationals }: EducationContentProps) => {
             <div className='flex flex-row py-4 border-neutral-700' key={index}>
               <div className='flex flex-col space-y-1 w-44'>
                 <span className='text-md font-medium text-neutral-300'>
-                  {education.startAt} - {education.endAt}
+                  {formatKoreanDate(education.startAt)} ~ {formatKoreanDate(education.endAt)}
                 </span>
                 {education.grade && (
                   <span className='text-sm font-normal text-neutral-400'>
@@ -36,7 +37,7 @@ const EducationContent = ({ educationals }: EducationContentProps) => {
                 <h3 className='text-xl font-medium text-neutral-100'>{education.name}</h3>
                 <span className='text-sm text-neutral-300'>{education.major}</span>
               </div>
-              <p className='whitespace-pre text-neutral-400'>{education.description}</p>
+              <p className='whitespace-pre-wrap text-neutral-400'>{education.description}</p>
             </div>
           );
         })}

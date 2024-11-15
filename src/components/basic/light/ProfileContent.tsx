@@ -6,7 +6,7 @@ interface ProfileContentProps {
 
 const ProfileContent = ({ basic }: ProfileContentProps) => {
   return (
-    <div className='flex flex-col space-y-3 whitespace-pre'>
+    <div className='flex flex-col space-y-3 whitespace-pre-wrap'>
       <p className='text-3xl font-semibold'>{basic.title}</p>
       <p className='text-base'>{basic.introduce}</p>
     </div>

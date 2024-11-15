@@ -1,3 +1,4 @@
+import { formatKoreanDate } from '@/app/utils/convertor';
 import { Activity } from '@/types/resume';
 
 interface CompanyContentProps {
@@ -16,13 +17,13 @@ const CompanyContent = ({ companies }: CompanyContentProps) => {
               <div className='flex flex-row justify-between items-center'>
                 <span className='font-bold text-xl'>{company.title}</span>
                 <span className='font-normal text-sm dark:text-gray-400'>
-                  {company.startAt} ~ {company.endAt}
+                  {formatKoreanDate(company.startAt)} ~ {formatKoreanDate(company.endAt)}
                 </span>
               </div>
               <span className='font-normal text-sub text-lg mt-1 mb-5 dark:text-gray-300'>
                 {newAffiliation}
               </span>
-              <p className='font-normal text-sm whitespace-pre truncate text-wrap dark:text-gray-300'>
+              <p className='font-normal text-sm whitespace-pre-wrap truncate text-wrap dark:text-gray-300'>
                 {company.description}
               </p>
             </div>

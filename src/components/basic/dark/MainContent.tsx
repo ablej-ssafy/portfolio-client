@@ -1,9 +1,11 @@
 import DarkIconText from '@/components/common/dark/DarkIconText';
 import { Basic } from '@/types/resume';
-import { IoLogoGithub } from 'react-icons/io';
-import { MdOutlineMailOutline } from 'react-icons/md';
-import { PiPhoneFill } from 'react-icons/pi';
-import { TbWorld } from 'react-icons/tb';
+import Image from 'next/image';
+import BaseProfile from 'public/NoProfile.png';
+import GithubDark from 'public/dark/GithubDark.svg';
+import LinkDark from 'public/dark/LinkDark.svg';
+import MailDark from 'public/dark/MailDark.svg';
+import PhoneDark from 'public/dark/PhoneDark.svg';
 
 interface MainContentProps {
   basic: Basic;
@@ -12,11 +14,12 @@ interface MainContentProps {
 const MainContent = ({ basic }: MainContentProps) => {
   return (
     <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white'>
-      <div
-        className='w-60 h-60 rounded-full bg-contain bg-center bg-no-repeat bg-white'
-        style={{
-          backgroundImage: `url(${basic.profileImage})`,
-        }}
+      <Image
+        src={basic.profileImage ? basic.profileImage : BaseProfile}
+        alt={basic.name}
+        className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
+        width={240}
+        height={240}
       />
       <div className='flex flex-col'>
         <span className='text-5xl font-semibold'>{basic.name}</span>
@@ -24,25 +27,31 @@ const MainContent = ({ basic }: MainContentProps) => {
           {/* 이메일 */}
           {basic.email && (
             <DarkIconText text={basic.email} email>
-              <MdOutlineMailOutline size={20} className='text-gray-300' />
+              <Image src={MailDark} alt='mail' width={20} height={20} className='text-gray-300' />
             </DarkIconText>
           )}
           {/* 전화번호 */}
           {basic.phoneNumber && (
             <DarkIconText text={basic.phoneNumber}>
-              <PiPhoneFill size={20} className='text-gray-300' />
+              <Image src={PhoneDark} alt='phone' width={20} height={20} className='text-gray-300' />
             </DarkIconText>
           )}
           {/* 깃허브 */}
           {basic.github && (
             <DarkIconText text={basic.github}>
-              <IoLogoGithub size={20} className='text-gray-300' />
+              <Image
+                src={GithubDark}
+                alt='github'
+                width={20}
+                height={20}
+                className='text-gray-300'
+              />
             </DarkIconText>
           )}
           {/* 웹사이트 */}
           {basic.website && (
             <DarkIconText text={basic.website}>
-              <TbWorld size={20} className='text-gray-300' />
+              <Image src={LinkDark} alt='web' width={20} height={20} className='text-gray-300' />
             </DarkIconText>
           )}
         </div>

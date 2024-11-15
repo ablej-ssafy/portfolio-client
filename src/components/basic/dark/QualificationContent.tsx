@@ -1,3 +1,4 @@
+import { formatKoreanDate } from '@/app/utils/convertor';
 import { Qualification } from '@/types/resume';
 
 interface QualificationContentProps {
@@ -13,7 +14,9 @@ const QualificationContent = ({ qualifications }: QualificationContentProps) => 
           <div key={qualification.name} className='flex flex-col pt-8'>
             <div className='flex flex-row justify-between items-center'>
               <span className='text-xl font-semibold'>{qualification.name}</span>
-              <span className='text-base dark:text-gray-300'>{qualification.acquisitionAt}</span>
+              <span className='text-base dark:text-gray-300'>
+                {formatKoreanDate(qualification.acquisitionAt)}
+              </span>
             </div>
             <span className='text-[#A9A9A9] dark:text-gray-400 text-sm mt-1 mb-3'>
               {qualification.credential}

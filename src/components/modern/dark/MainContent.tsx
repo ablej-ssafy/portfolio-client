@@ -7,7 +7,7 @@ interface MainContentProps {
 const MainContent = (props: MainContentProps) => {
   return (
     <div
-      className='flex flex-col whitespace-pre w-3/5 truncate text-wrap items-start mt-10 
+      className='flex flex-col whitespace-pre-wrap w-3/5 truncate text-wrap items-start mt-10 
   bg-neutral-900 text-neutral-200'
     >
       <h2 className='font-semibold text-4xl text-neutral-100'>{props.basic.name}</h2>

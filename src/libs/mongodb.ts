@@ -1,24 +1,22 @@
 import { MONGODB_URI } from '@/config/env';
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
-const options = {};
-
-let client;
-let clientPromise: Promise<MongoClient>;
-
-if (process.env.NODE_ENV === 'development') {
-  const globalWithMongo = global as typeof globalThis & {
-    _mongoClientPromise?: Promise<MongoClient>
-  }
-
-  if (!globalWithMongo._mongoClientPromise) {
-    client = new MongoClient(MONGODB_URI, options);
-    globalWithMongo._mongoClientPromise = client.connect();
-  }
-  clientPromise = globalWithMongo._mongoClientPromise;
-} else {
-  client = new MongoClient(MONGODB_URI, options);
-  clientPromise = client.connect();
+if (!MONGODB_URI) {
+  throw new Error('env 파일에 MONGODB_URI가 설정되어 있지 않습니다.');
 }
 
-export default clientPromise;
+async function dbConnect() {
+  // 연결이 되었거나 연결 중일 때
+  if (mongoose.connection.readyState >= 1) {
+    return;
+  }
+
+  try {
+    await mongoose.connect(MONGODB_URI);
+  } catch (error) {
+    console.error('몽고디비 연결 에러', error);
+    process.exit(1); // 오류 발생 시 프로세스 종료
+  }
+}
+
+export default dbConnect;

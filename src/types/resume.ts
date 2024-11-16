@@ -1,5 +1,15 @@
+export enum TemplateType {
+  BASIC_LIGHT = 'BASIC_LIGHT',
+  BASIC_DARK = 'BASIC_DARK',
+  MODERN_LIGHT = 'MODERN_LIGHT',
+  MODERN_DARK = 'MODERN_DARK',
+}
+
 export interface ResumeType {
   memberId: number;
+  isPrivate: boolean;
+  templateType: TemplateType;
+  hashKey: string;
   basic: Basic;
   projects: Activity[];
   companies: Activity[];

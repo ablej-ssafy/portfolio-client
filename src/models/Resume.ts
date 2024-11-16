@@ -1,8 +1,11 @@
-import { Activity, Basic, Education, Qualification } from '@/types/resume';
+import { Activity, Basic, Education, Qualification, TemplateType } from '@/types/resume';
 import mongoose, { Schema } from 'mongoose';
 
 export interface IResume {
   memberId: number;
+  isPrivate: boolean;
+  hashKey: string;
+  templateType: TemplateType;
   basic: Basic;
   projects: Activity[];
   companies: Activity[];
@@ -14,6 +17,9 @@ export interface IResume {
 const resumeSchema: Schema = new Schema(
   {
     memberId: { type: Number, required: true, unique: true, immutable: true },
+    isPrivate: { type: Boolean, required: true },
+    hashKey: { type: String, required: true },
+    templateType: { type: String, required: true },
     basic: {
       type: {
         name: { type: String, required: true },

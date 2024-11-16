@@ -8,6 +8,7 @@ export const GET = async (
   try {
     const { memberId } = await params;
     const resume = await getResume(memberId);
+    // TODO:
 
     if (!resume) {
       return NextResponse.json(

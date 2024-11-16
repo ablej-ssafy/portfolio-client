@@ -33,10 +33,10 @@ export default function ErrorPage({
               다시 시도하기
             </button>
             <Link 
-              href='https://www.noteme.kro.kr'
+              href='/'
               className='rounded-3xl bg-primary-100 text-primary-700 dark:bg-gray-600 dark:text-white px-5 py-3 font-medium text-sm hover:bg-primary-200 dark:hover:bg-gray-500 transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg'
             >
-              AI 추천 채용 정보 보러가기
+              홈으로 돌아가기
             </Link>
           </div>
         </div>

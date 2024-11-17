@@ -11,7 +11,6 @@ export default function ErrorPage({
   reset: () => void;
 }) {
   useEffect(() => {
-    // 에러 로깅
     console.error('Unexpected error:', error);
   }, [error]);
 

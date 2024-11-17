@@ -36,20 +36,29 @@ async function getResume(resumeKey: number) {
 
 export async function generateMetadata({ params }: ResumePageProps) {
   const hashKey = (await params).hashKey;
-  const { resume } = await getResume(Number(hashKey));
+  try {
+    const { resume } = await getResume(Number(hashKey));
 
-  if (!resume) {
+    if (!resume) {
+      return {
+        title: '존재하지 않는 이력서',
+        description: '존재하지 않는 이력서입니다.',
+      };
+    }
+      
+  
     return {
-      title: '존재하지 않는 이력서',
-      description: '존재하지 않는 이력서입니다.',
+      title: `${resume.basic.name}님의 이력서`,
+      description: `${resume.basic.name}님의 이력서`,
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: '이력서를 가져오는데 실패하였습니다.',
+      description: '이력서를 가져오는데 실패하였습니다.',
     };
   }
-    
-
-  return {
-    title: `${resume.basic.name}님의 이력서`,
-    description: `${resume.basic.name}님의 이력서`,
-  };
+  
 }
 
 export default async function ResumePage({ params }: ResumePageProps) {

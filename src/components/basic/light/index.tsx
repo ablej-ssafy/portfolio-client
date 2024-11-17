@@ -15,7 +15,7 @@ interface BasicLightProps {
 const BasicLight = ({ resume }: BasicLightProps) => {
   return (
     <div className='bg-[#FFF5F1]'>
-      <div className='flex flex-col w-4/5 m-auto py-24 space-y-12'>
+      <div className='flex flex-col w-4/5 m-auto py-24 space-y-28'>
         <div className='space-y-10'>
           {/* 메인 프로필 */}
           <MainContent basic={resume.basic} />

@@ -3,12 +3,12 @@
 import Link from 'next/link';
 import { useEffect } from 'react';
 
-export default function ErrorPage({ 
-  error, 
-  reset 
-}: { 
-  error: Error & { digest?: string }, 
-  reset: () => void 
+export default function ErrorPage({
+  error,
+  reset,
+}: {
+  error: Error & { digest?: string };
+  reset: () => void;
 }) {
   useEffect(() => {
     // 에러 로깅
@@ -26,13 +26,13 @@ export default function ErrorPage({
             요청하신 작업을 처리하는 중 문제가 발생했습니다.
           </p>
           <div className='flex space-x-4'>
-            <button 
+            <button
               onClick={() => reset()}
               className='rounded-3xl bg-primary-500 text-white dark:bg-primary-700 px-5 py-3 font-medium text-sm hover:bg-primary-600 dark:hover:bg-primary-800 transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg dark:shadow-primary-900/50 dark:hover:shadow-xl'
             >
               다시 시도하기
             </button>
-            <Link 
+            <Link
               href='/'
               className='rounded-3xl bg-primary-100 text-primary-700 dark:bg-gray-600 dark:text-white px-5 py-3 font-medium text-sm hover:bg-primary-200 dark:hover:bg-gray-500 transition-colors duration-300 ease-in-out shadow-md hover:shadow-lg'
             >

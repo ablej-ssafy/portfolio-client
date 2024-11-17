@@ -15,13 +15,13 @@ interface BasicDarkProps {
 const BasicDark = ({ resume }: BasicDarkProps) => {
   return (
     <div className='bg-gray-900 text-white'>
-      <div className='flex flex-col w-4/5 m-auto py-24 space-y-12'>
+      <div className='flex flex-col w-4/5 m-auto py-24 space-y-28'>
         <div className='space-y-10'>
           {/* 메인 프로필 */}
           <MainContent basic={resume.basic} />
           <ProfileContent basic={resume.basic} />
+          <hr className='border-gray-700' />
         </div>
-        <hr className='border-gray-700' />
         <div className='grid grid-cols-2 gap-20'>
           {/* 프로젝트 페이지 */}
           {resume.projects.length > 0 && <ProjectContent projects={resume.projects} />}

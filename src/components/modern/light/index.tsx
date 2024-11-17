@@ -14,7 +14,7 @@ interface ModernLightProps {
 
 const ModernLight = ({ resume }: ModernLightProps) => {
   return (
-    <div className='flex flex-col w-4/5 m-auto py-24 space-y-10'>
+    <main className='flex flex-col w-4/5 m-auto py-24 space-y-28'>
       {/* 메인 프로필 페이지 */}
       <div className='flex flex-row justify-between'>
         <MainContent basic={resume.basic} />
@@ -34,7 +34,7 @@ const ModernLight = ({ resume }: ModernLightProps) => {
       )}
       {/* 기술스택 페이지 */}
       <TechContent />
-    </div>
+    </main>
   );
 };
 

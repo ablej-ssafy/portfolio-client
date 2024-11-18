@@ -14,9 +14,9 @@ interface ResumePageProps {
 
 const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
-async function getResume(resumeKey: number) {
+async function getResume(hashKey: string) {
   try {
-    const response = await fetch(`${BASE_URL}/api/resume/${resumeKey}`, {
+    const response = await fetch(`${BASE_URL}/api/resume/${hashKey}`, {
       headers: {
         Accept: 'application/json',
       },
@@ -37,7 +37,7 @@ async function getResume(resumeKey: number) {
 export async function generateMetadata({ params }: ResumePageProps) {
   const hashKey = (await params).hashKey;
   try {
-    const { resume } = await getResume(Number(hashKey));
+    const { resume } = await getResume(hashKey);
 
     if (!resume) {
       return {
@@ -45,11 +45,25 @@ export async function generateMetadata({ params }: ResumePageProps) {
         description: '존재하지 않는 이력서입니다.',
       };
     }
-      
-  
+
+    const userImage = resume.basic.profileImage ? resume.basic.profileImage : '/NoProfile.png';
+
     return {
+      images: userImage || '/NoProfile.png',
       title: `${resume.basic.name}님의 이력서`,
-      description: `${resume.basic.name}님의 이력서`,
+      description: `${resume.basic.introduce}`,
+      openGraph: {
+        title: `${resume.basic.name}님의 이력서`,
+        type: 'website',
+        description: `${resume.basic.introduce}`,
+        images: {
+          url: userImage || '/NoProfile.png',
+        },
+        twitter: {
+          card: userImage || '/NoProfile.png',
+          image: userImage || '/NoProfile.png',
+        },
+      },
     };
   } catch (error) {
     console.error(error);
@@ -58,7 +72,6 @@ export async function generateMetadata({ params }: ResumePageProps) {
       description: '이력서를 가져오는데 실패하였습니다.',
     };
   }
-  
 }
 
 export default async function ResumePage({ params }: ResumePageProps) {
@@ -67,7 +80,7 @@ export default async function ResumePage({ params }: ResumePageProps) {
   // const memberId = jwtDecode(hashKey).sub;
   // console.log('memberId', memberId);
 
-  const { status, resume } = await getResume(Number(hashKey));
+  const { status, resume } = await getResume(hashKey);
 
   if (status === 404) {
     notFound();

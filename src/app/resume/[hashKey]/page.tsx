@@ -52,12 +52,19 @@ export async function generateMetadata({ params }: ResumePageProps) {
       };
     }
 
-    const userImage = resume.basic.profileImage ? resume.basic.profileImage : '/NoProfile.png';
+    if (!resume.basic) {
+      return {
+        title: '기본 정보가 없는 이력서',
+        description: '기본 정보가 없는 이력서입니다.',
+      };
+    }
+
+    const userImage = resume.basic?.profileImage ? resume.basic.profileImage : '/NoProfile.png';
 
     return {
       images: userImage || '/NoProfile.png',
-      title: `${resume.basic.name}님의 이력서`,
-      description: `${resume.basic.introduce}`,
+      title: `${resume.basic?.name}님의 이력서`,
+      description: `${resume.basic?.introduce}`,
       openGraph: {
         title: `${resume.basic.name}님의 이력서`,
         type: 'website',
@@ -82,9 +89,6 @@ export async function generateMetadata({ params }: ResumePageProps) {
 
 export default async function ResumePage({ params }: ResumePageProps) {
   const hashKey = (await params).hashKey;
-  console.log('hashkey', hashKey);
-  // const memberId = jwtDecode(hashKey).sub;
-  // console.log('memberId', memberId);
 
   const { status, resume } = await getResume(hashKey);
 

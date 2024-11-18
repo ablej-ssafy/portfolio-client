@@ -14,8 +14,6 @@ export const GET = async (
     const hashKey = (await params).hashKey;
     const resume: ResumeType | null = await Resume.findOne({ hashKey });
 
-    console.log('resume', resume);
-
     if (!resume) {
       return NextResponse.json(
         { error: '해당 유저의 이력서가 존재하지 않습니다.' },

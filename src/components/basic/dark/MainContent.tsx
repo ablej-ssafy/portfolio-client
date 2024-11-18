@@ -14,17 +14,17 @@ interface MainContentProps {
 }
 
 const MainContent = ({ basic, isPrivate }: MainContentProps) => {
-  console.log('isPrivate', isPrivate);
   return (
-    <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white relative w-60 h-60'>
-      <Image
-        src={basic.profileImage ? basic.profileImage : BaseProfile}
-        alt={basic.name}
-        className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
-        fill
-      />
-      <div className='flex flex-col right-60'>
-        <span className='text-5xl font-semibold'>{basic.name}</span>
+    <div className='flex flex-row gap-10'>
+      <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white relative w-60 h-60'>
+        <Image
+          src={basic.profileImage ? basic.profileImage : BaseProfile}
+          alt={basic.name}
+          className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
+          fill
+        />
+      </div>
+      <div className='flex flex-col'>
         <div className='flex flex-row space-x-3 items-center'>
           <span className='text-5xl font-semibold'>{basic.name}</span>
           {isPrivate && <Image src={Private} alt='공개 여부' width={48} height={48} />}

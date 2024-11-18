@@ -23,7 +23,7 @@ const MainContent = ({ basic, isPrivate }: MainContentProps) => {
         className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
         fill
       />
-      <div className='flex flex-col top-60'>
+      <div className='flex flex-col right-60'>
         <span className='text-5xl font-semibold'>{basic.name}</span>
         <div className='flex flex-row space-x-3 items-center'>
           <span className='text-5xl font-semibold'>{basic.name}</span>

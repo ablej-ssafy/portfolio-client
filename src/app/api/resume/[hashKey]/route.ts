@@ -1,6 +1,7 @@
 import dbConnect from '@/libs/mongodb';
 import Resume from '@/models/Resume';
 import { ResumeType } from '@/types/resume';
+import { jwtDecode } from 'jwt-decode';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async (
@@ -12,6 +13,9 @@ export const GET = async (
 
     const hashKey = (await params).hashKey;
     const resume: ResumeType | null = await Resume.findOne({ hashKey });
+
+    console.log('resume', resume);
+
     if (!resume) {
       return NextResponse.json(
         { error: '해당 유저의 이력서가 존재하지 않습니다.' },
@@ -20,34 +24,36 @@ export const GET = async (
     }
 
     if (resume.isPrivate) {
-      const accessToken = request.cookies.get('accessToken');
-      if (accessToken) {
-        return NextResponse.json(resume, { status: 200 });
-      }
-      
-      return NextResponse.json(
-        {
-          basic: {
-            profileImage: resume.basic.profileImage,
-            name: resume.basic.name,
+      const accessToken = request.cookies.get('accessToken')?.value;
+
+      if (!accessToken) {
+        return NextResponse.json(
+          {
+            basic: {
+              profileImage: resume.basic.profileImage,
+              name: resume.basic.name,
+            },
           },
-        },
-        { status: 403 },
-      );
+          { status: 403 },
+        );
+      }
+
+      const decodeMemberId = jwtDecode(accessToken as string).sub;
+
+      if (Number(decodeMemberId) !== resume.memberId) {
+        return NextResponse.json(
+          {
+            basic: {
+              profileImage: resume.basic.profileImage,
+              name: resume.basic.name,
+            },
+          },
+          { status: 403 },
+        );
+      }
+
+      return NextResponse.json(resume, { status: 200 });
     }
-      // if (!accessToken) {
-      //   console.log('accessToken 없음');
-      //   return;
-      // }
-
-      // const decodeMemberId = jwtDecode(accessToken);
-
-      // console.log(decodeMemberId);
-
-      // if decode memberId === resume.memberId -> return resume
-      // if !accessToken -> refreshToken ->
-      // if !refreshToken ->
-
     return NextResponse.json(resume, { status: 200 });
   } catch (error) {
     console.error(error);

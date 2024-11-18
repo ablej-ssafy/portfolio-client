@@ -2,6 +2,7 @@ import DarkIconText from '@/components/common/dark/DarkIconText';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
 import BaseProfile from 'public/NoProfile.png';
+import Private from 'public/Private.png';
 import GithubDark from 'public/dark/GithubDark.svg';
 import LinkDark from 'public/dark/LinkDark.svg';
 import MailDark from 'public/dark/MailDark.svg';
@@ -9,9 +10,11 @@ import PhoneDark from 'public/dark/PhoneDark.svg';
 
 interface MainContentProps {
   basic: Basic;
+  isPrivate: boolean;
 }
 
-const MainContent = ({ basic }: MainContentProps) => {
+const MainContent = ({ basic, isPrivate }: MainContentProps) => {
+  console.log('isPrivate', isPrivate);
   return (
     <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white relative w-60 h-60'>
       <Image
@@ -22,6 +25,10 @@ const MainContent = ({ basic }: MainContentProps) => {
       />
       <div className='flex flex-col top-60'>
         <span className='text-5xl font-semibold'>{basic.name}</span>
+        <div className='flex flex-row space-x-3 items-center'>
+          <span className='text-5xl font-semibold'>{basic.name}</span>
+          {isPrivate && <Image src={Private} alt='공개 여부' width={48} height={48} />}
+        </div>
         <div className='flex flex-col space-y-4 mt-6'>
           {/* 이메일 */}
           {basic.email && (

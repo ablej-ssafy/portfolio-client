@@ -17,7 +17,7 @@ const ModernLight = ({ resume }: ModernLightProps) => {
     <main className='flex flex-col w-4/5 m-auto py-24 space-y-28'>
       {/* 메인 프로필 페이지 */}
       <div className='flex flex-row justify-between'>
-        <MainContent basic={resume.basic} />
+        <MainContent basic={resume.basic} isPrivate={resume.isPrivate}/>
         <ProfileContent basic={resume.basic} />
       </div>
       {/* 프로젝트 페이지 */}

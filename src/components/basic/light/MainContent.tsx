@@ -13,15 +13,14 @@ interface MainContentProps {
 
 const MainContent = ({ basic }: MainContentProps) => {
   return (
-    <div className='flex flex-row items-center space-x-10'>
+    <div className='flex flex-row items-center space-x-10 relative w-60 h-60'>
       <Image
         src={basic.profileImage ? basic.profileImage : BaseProfile}
         alt={basic.name}
         className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
-        width={240}
-        height={240}
+        fill
       />
-      <div className='flex flex-col'>
+      <div className='flex flex-col top-60'>
         <span className='text-5xl font-semibold'>{basic.name}</span>
         <div className='flex flex-col space-y-4 mt-6'>
           {/* 이메일 */}

@@ -1,7 +1,7 @@
 import IconText from '@/components/common/light/IconText';
+import { Basic } from '@/types/resume';
 import Image from 'next/image';
 import BaseProfile from 'public/NoProfile.png';
-import { Basic } from '@/types/resume';
 import GithubLight from 'public/light/GithubLight.svg';
 import LinkLight from 'public/light/LinkLight.svg';
 import MailLight from 'public/light/MailLight.svg';
@@ -13,15 +13,14 @@ interface ProfileContentProps {
 
 const ProfileContent = ({ basic }: ProfileContentProps) => {
   return (
-    <div className='flex flex-col items-center w-1/4'>
+    <div className='flex flex-col items-center relative w-60 h-60'>
       <Image
         src={basic.profileImage ? basic.profileImage : BaseProfile}
         alt={basic.name}
+        fill
         className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
-        width={240}
-        height={240}
       />
-      <div className='flex flex-col space-y-2 mt-6'>
+      <div className='flex top-60 flex-col space-y-2 mt-6'>
         {/* 이메일 */}
         {basic.email && (
           <IconText text={basic.email} email>

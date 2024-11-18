@@ -21,7 +21,9 @@ export const GET = async (
 
     if (resume.isPrivate) {
       const accessToken = request.cookies.get('accessToken');
-      console.log('accessToken', accessToken);
+      if (accessToken) {
+        return NextResponse.json(resume, { status: 200 });
+      }
       
       return NextResponse.json(
         {

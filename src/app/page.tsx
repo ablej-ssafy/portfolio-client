@@ -1,3 +1,5 @@
+import { redirect } from 'next/navigation';
+
 export default function Home() {
-  return <span className='text-xl flex justify-center align-center'>이력서 페이지 입니다.</span>;
+  return redirect('https://www.noteme.kro.kr');
 }

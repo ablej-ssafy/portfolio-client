@@ -2,6 +2,7 @@ import IconText from '@/components/common/light/IconText';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
 import BaseProfile from 'public/NoProfile.png';
+import Private from 'public/Private.png';
 import GithubLight from 'public/light/GithubLight.svg';
 import LinkLight from 'public/light/LinkLight.svg';
 import MailLight from 'public/light/MailLight.svg';
@@ -9,9 +10,10 @@ import PhoneLight from 'public/light/PhoneLight.svg';
 
 interface MainContentProps {
   basic: Basic;
+  isPrivate: boolean;
 }
 
-const MainContent = ({ basic }: MainContentProps) => {
+const MainContent = ({ basic, isPrivate }: MainContentProps) => {
   return (
     <div className='flex flex-row items-center space-x-10'>
       <Image
@@ -22,7 +24,10 @@ const MainContent = ({ basic }: MainContentProps) => {
         height={240}
       />
       <div className='flex flex-col'>
-        <span className='text-5xl font-semibold'>{basic.name}</span>
+        <div className='flex flex-row space-x-3 items-center'>
+          <span className='text-5xl font-semibold'>{basic.name}</span>
+          {isPrivate && <Image src={Private} alt='공개 여부' width={48} height={48} />}
+        </div>
         <div className='flex flex-col space-y-4 mt-6'>
           {/* 이메일 */}
           {basic.email && (

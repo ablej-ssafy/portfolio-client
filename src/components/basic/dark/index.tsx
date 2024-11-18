@@ -18,7 +18,7 @@ const BasicDark = ({ resume }: BasicDarkProps) => {
       <div className='flex flex-col w-4/5 m-auto py-24 space-y-28'>
         <div className='space-y-10'>
           {/* 메인 프로필 */}
-          <MainContent basic={resume.basic} />
+          <MainContent basic={resume.basic} isPrivate={resume.isPrivate}/>
           <ProfileContent basic={resume.basic} />
           <hr className='border-gray-700' />
         </div>

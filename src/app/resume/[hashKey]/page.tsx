@@ -20,6 +20,7 @@ async function getResume(hashKey: string) {
       headers: {
         Accept: 'application/json',
       },
+      credentials: 'include',
     });
 
     const resume: ResumeType | null = await response.json();

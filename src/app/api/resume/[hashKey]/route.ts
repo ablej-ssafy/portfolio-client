@@ -1,14 +1,14 @@
 import dbConnect from '@/libs/mongodb';
 import Resume from '@/models/Resume';
 import { ResumeType } from '@/types/resume';
-import { jwtDecode } from 'jwt-decode';
 import { NextRequest, NextResponse } from 'next/server';
 
 export const GET = async (
   request: NextRequest,
   { params }: { params: Promise<{ hashKey: string }> },
 ) => {
-  console.log('All Cookies:', request.cookies.getAll().values());
+  console.log('All Cookies:', request.cookies.getAll());
+  console.log('All Cookies value:', request.cookies.getAll()?.values());
 
   try {
     await dbConnect();
@@ -23,23 +23,22 @@ export const GET = async (
     }
 
     if (resume.isPrivate) {
-      const accessToken = request.cookies.get('accessToken');
+      const accessToken = request.cookies.get('accessToken')?.value;
       console.log('accessToken', accessToken);
 
       if (!accessToken) {
         console.log('accessToken 없음');
+        // const refreshToken = request.cookies.get('refreshToken')?.value;
         return;
       }
 
-      const decodeMemberId = jwtDecode(accessToken);
+      // const decodeMemberId = jwtDecode(accessToken).sub;
 
-      console.log(decodeMemberId);
+      // console.log(decodeMemberId);
 
       // if decode memberId === resume.memberId -> return resume
       // if !accessToken -> refreshToken ->
       // if !refreshToken ->
-
-      return NextResponse.json(resume, { status: 200 });
 
       return NextResponse.json(
         {

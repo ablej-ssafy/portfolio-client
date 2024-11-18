@@ -7,9 +7,6 @@ export const GET = async (
   request: NextRequest,
   { params }: { params: Promise<{ hashKey: string }> },
 ) => {
-  console.log('All Cookies:', request.cookies.getAll());
-  console.log('All Cookies value:', request.cookies.getAll()?.values());
-
   try {
     await dbConnect();
 
@@ -23,23 +20,9 @@ export const GET = async (
     }
 
     if (resume.isPrivate) {
-      const accessToken = request.cookies.get('accessToken')?.value;
+      const accessToken = request.cookies.get('accessToken');
       console.log('accessToken', accessToken);
-
-      if (!accessToken) {
-        console.log('accessToken 없음');
-        // const refreshToken = request.cookies.get('refreshToken')?.value;
-        return;
-      }
-
-      // const decodeMemberId = jwtDecode(accessToken).sub;
-
-      // console.log(decodeMemberId);
-
-      // if decode memberId === resume.memberId -> return resume
-      // if !accessToken -> refreshToken ->
-      // if !refreshToken ->
-
+      
       return NextResponse.json(
         {
           basic: {
@@ -50,6 +33,18 @@ export const GET = async (
         { status: 403 },
       );
     }
+      // if (!accessToken) {
+      //   console.log('accessToken 없음');
+      //   return;
+      // }
+
+      // const decodeMemberId = jwtDecode(accessToken);
+
+      // console.log(decodeMemberId);
+
+      // if decode memberId === resume.memberId -> return resume
+      // if !accessToken -> refreshToken ->
+      // if !refreshToken ->
 
     return NextResponse.json(resume, { status: 200 });
   } catch (error) {

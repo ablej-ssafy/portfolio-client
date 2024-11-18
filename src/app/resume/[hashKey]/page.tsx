@@ -4,6 +4,7 @@ import BasicLight from '@/components/basic/light';
 import ModernDark from '@/components/modern/dark';
 import ModernLight from '@/components/modern/light';
 import { ResumeType, TemplateType } from '@/types/resume';
+import { cookies } from 'next/headers';
 import { notFound } from 'next/navigation';
 
 interface ResumePageProps {
@@ -16,9 +17,16 @@ const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL;
 
 async function getResume(hashKey: string) {
   try {
+    const cookieStore = await cookies();
+    const cookieHeader = cookieStore
+      .getAll()
+      .map(cookie => `${cookie.name}=${cookie.value}`)
+      .join('; ');
+
     const response = await fetch(`${BASE_URL}/api/resume/${hashKey}`, {
       headers: {
         Accept: 'application/json',
+        Cookie: cookieHeader,
       },
       credentials: 'include',
     });

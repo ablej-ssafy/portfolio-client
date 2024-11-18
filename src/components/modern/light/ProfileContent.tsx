@@ -1,7 +1,7 @@
 import IconText from '@/components/common/light/IconText';
+import { DEFAULT_IMAGE } from '@/constant/image';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
-import BaseProfile from 'public/NoProfile.png';
 import GithubLight from 'public/light/GithubLight.svg';
 import LinkLight from 'public/light/LinkLight.svg';
 import MailLight from 'public/light/MailLight.svg';
@@ -15,7 +15,7 @@ const ProfileContent = ({ basic }: ProfileContentProps) => {
   return (
     <div className='flex flex-col items-center relative w-60 h-60'>
       <Image
-        src={basic.profileImage ? basic.profileImage : BaseProfile}
+        src={basic.profileImage ? basic.profileImage : DEFAULT_IMAGE}
         alt={basic.name}
         fill
         className='rounded-full bg-contain bg-center bg-no-repeat bg-white'

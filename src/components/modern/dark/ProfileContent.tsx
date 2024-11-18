@@ -1,7 +1,7 @@
 import DarkIconText from '@/components/common/dark/DarkIconText';
+import { DEFAULT_IMAGE } from '@/constant/image';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
-import BaseProfile from 'public/NoProfile.png';
 import GithubDark from 'public/dark/GithubDark.svg';
 import LinkDark from 'public/dark/LinkDark.svg';
 import MailDark from 'public/dark/MailDark.svg';
@@ -15,7 +15,7 @@ const ProfileContent = ({ basic }: ProfileContentProps) => {
   return (
     <div className='flex flex-col items-center w-60 h-60 relative bg-neutral-900'>
       <Image
-        src={basic.profileImage ? basic.profileImage : BaseProfile}
+        src={basic.profileImage ? basic.profileImage : DEFAULT_IMAGE}
         alt={basic.name}
         className='rounded-full bg-contain bg-center bg-no-repeat border-4 border-neutral-700 bg-white'
         fill

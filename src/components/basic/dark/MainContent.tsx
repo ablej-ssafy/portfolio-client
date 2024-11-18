@@ -1,7 +1,7 @@
 import DarkIconText from '@/components/common/dark/DarkIconText';
+import { DEFAULT_IMAGE } from '@/constant/image';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
-import BaseProfile from 'public/NoProfile.png';
 import Private from 'public/Private.png';
 import GithubDark from 'public/dark/GithubDark.svg';
 import LinkDark from 'public/dark/LinkDark.svg';
@@ -18,7 +18,7 @@ const MainContent = ({ basic, isPrivate }: MainContentProps) => {
     <div className='flex flex-row gap-10'>
       <div className='flex flex-row items-center space-x-10 dark:bg-gray-900 dark:text-white relative w-60 h-60'>
         <Image
-          src={basic.profileImage ? basic.profileImage : BaseProfile}
+          src={basic.profileImage ? basic.profileImage : DEFAULT_IMAGE}
           alt={basic.name}
           className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
           fill

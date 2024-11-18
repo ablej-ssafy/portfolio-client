@@ -3,6 +3,7 @@ import BasicDark from '@/components/basic/dark';
 import BasicLight from '@/components/basic/light';
 import ModernDark from '@/components/modern/dark';
 import ModernLight from '@/components/modern/light';
+import { DEFAULT_IMAGE } from '@/constant/image';
 import { ResumeType, TemplateType } from '@/types/resume';
 import { headers } from 'next/headers';
 import { notFound } from 'next/navigation';
@@ -59,10 +60,10 @@ export async function generateMetadata({ params }: ResumePageProps) {
       };
     }
 
-    const userImage = resume.basic?.profileImage ? resume.basic.profileImage : '/NoProfile.png';
+    const userImage = resume.basic?.profileImage ? resume.basic.profileImage : DEFAULT_IMAGE;
 
     return {
-      images: userImage || '/NoProfile.png',
+      images: userImage || DEFAULT_IMAGE,
       title: `${resume.basic?.name}님의 이력서`,
       description: `${resume.basic?.introduce}`,
       openGraph: {
@@ -70,11 +71,11 @@ export async function generateMetadata({ params }: ResumePageProps) {
         type: 'website',
         description: `${resume.basic.introduce}`,
         images: {
-          url: userImage || '/NoProfile.png',
+          url: userImage || DEFAULT_IMAGE,
         },
         twitter: {
-          card: userImage || '/NoProfile.png',
-          image: userImage || '/NoProfile.png',
+          card: userImage || DEFAULT_IMAGE,
+          image: userImage || DEFAULT_IMAGE,
         },
       },
     };
@@ -103,7 +104,7 @@ export default async function ResumePage({ params }: ResumePageProps) {
   if (status === 403) {
     return (
       <Forbidden
-        profileImage={resume.basic.profileImage || '/NoProfile.png'}
+        profileImage={resume.basic.profileImage || DEFAULT_IMAGE}
         name={resume.basic.name}
       />
     );

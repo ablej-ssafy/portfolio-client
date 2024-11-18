@@ -1,7 +1,7 @@
 import IconText from '@/components/common/light/IconText';
+import { DEFAULT_IMAGE } from '@/constant/image';
 import { Basic } from '@/types/resume';
 import Image from 'next/image';
-import BaseProfile from 'public/NoProfile.png';
 import Private from 'public/Private.png';
 import GithubLight from 'public/light/GithubLight.svg';
 import LinkLight from 'public/light/LinkLight.svg';
@@ -18,7 +18,7 @@ const MainContent = ({ basic, isPrivate }: MainContentProps) => {
     <div className='flex flex-row gap-10'>
       <div className='flex flex-row items-center space-x-10 relative w-60 h-60'>
         <Image
-          src={basic.profileImage ? basic.profileImage : BaseProfile}
+          src={basic.profileImage ? basic.profileImage : DEFAULT_IMAGE}
           alt={basic.name}
           className='rounded-full bg-contain bg-center bg-no-repeat bg-white'
           fill

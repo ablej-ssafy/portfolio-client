@@ -5,6 +5,7 @@ interface MainContentProps {
 }
 
 const MainContent = (props: MainContentProps) => {
+  console.log(props);
   return (
     <div
       className='flex flex-col whitespace-pre-wrap w-3/5 truncate text-wrap items-start mt-10 
